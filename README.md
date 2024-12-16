@@ -9,13 +9,15 @@ The script is run from the CLI, using the `main.py` file as the entrypoint and s
 ```bash
 python main.py input.txt
 ```
-The script will output the results to the output file (hardcoded as `output/duplicates.txt` in `duplicate_finder.py`).
+Each company name in the input file is cleaned (lowercased, stripped of punctuation and common words, etc.) and then stored and checked in a dictionary of all company names. If duplicates are found, they are output to the `output/duplicates.txt` file.
+
+
 
 
 ## Design Considerations and Future Improvements
 
 ### Simple, but Fast
-Our current implementation runs in O(n) time, as we process company names and then store them in a dictionary, allowing us to check for duplicates in constant time. This is very basic duplicate detection, relying on exact string matching after some preprocessing. More sophisticated strategies, such as inverted index-based matching and fuzzy matching, would likely capture more duplicates, but at a tradeoff of increased runtime complexity. Is that tradeoff worth it? It's impossible to say without more data and a better understanding of duplicate patterns. With more time, I would certainly explore these more sophisticated strategies (relevant links [here](https://stackoverflow.com/questions/28305008/algorithm-to-find-similar-strings-in-a-list-of-many-strings) and [here](https://yassineelkhal.medium.com/the-complete-guide-to-string-similarity-algorithms-1290ad07c6b7)). However, given the time constraints and scope of this assignment, I erred on the side of simplicity and speed.
+Our current implementation runs in O(n) time, as we process company names and then store them in a dictionary, allowing us to check for duplicates in constant time. This is very basic duplicate detection, relying on exact string matching after some preprocessing. More sophisticated strategies, such as inverted index-based matching and fuzzy matching, would likely capture more duplicates, but at a tradeoff of increased runtime complexity. Is that tradeoff worth it? It's impossible to say without more data and a better understanding of duplicate patterns. With more time, I would certainly explore these more sophisticated strategies in more detail (relevant links [here](https://stackoverflow.com/questions/28305008/algorithm-to-find-similar-strings-in-a-list-of-many-strings) and [here](https://yassineelkhal.medium.com/the-complete-guide-to-string-similarity-algorithms-1290ad07c6b7)). However, given the time constraints and scope of this assignment, I erred on the side of simplicity and speed.
 
 
 ### Ideal Approach
